@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {Subscription} from 'rxjs';
@@ -12,7 +12,7 @@ import {ResultadoDiarioDTO} from "../dto/ResultadoDiarioDTO";
   templateUrl: './resultado.component.html',
   styleUrl: './resultado.component.sass'
 })
-export class ResultadoComponent implements OnInit {
+export class ResultadoComponent implements OnInit, OnDestroy {
   resultadosDiarios: ResultadoDiarioDTO[] = [];
   private resultadosSubscription!: Subscription;
   inputFavor: string = '';
@@ -23,20 +23,12 @@ export class ResultadoComponent implements OnInit {
 
   ngOnInit() {
     this.cargarResultados();
-    this.resultadosDiarios.forEach((e: ResultadoDiarioDTO) => console.log("me encanta maldita falopa: " + e.fecha));
+    this.resultadosSubscription = this.resultadoService.getResultadosActualizadosObservable().subscribe(() => {
+      this.cargarResultados();
+    });
   }
 
   cargarResultados() {
-    /*this.resultadosSubscription = this.resultadoService
-      .obtenerListaResultados()
-      .subscribe(
-        (data) => {
-          this.resultadosDiarios = data;
-        },
-        (error) => {
-          console.error('Error al obtener resultados:', error);
-        }
-      );*/
     this.resultadoService
       .obtenerListaResultados()
       .subscribe(
@@ -67,7 +59,7 @@ export class ResultadoComponent implements OnInit {
 
   ngOnDestroy() {
     // Importante: Desuscribirse para evitar pérdida de memoria
-    //this.resultadosSubscription.unsubscribe();
+    this.resultadosSubscription.unsubscribe();
   }
 
   // Método que se ejecutará cuando se haga clic en el botón

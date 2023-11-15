@@ -1,32 +1,39 @@
-<div class="resultado-container">
-  <div class="container-input-boton">
-  <!-- Inputs en una línea -->
-  <div class="inputs-container">
-    <input [(ngModel)]="inputFavor" type="number" placeholder="A favor" min="0">
-    <span>-</span>
-    <input [(ngModel)]="inputContra" type="number" placeholder="En contra" min="0">
-  </div>
-  <!-- Botón debajo de los inputs -->
-  <div class="button-container">
-    <button (click)="agregarResultado()" class="botones">Cargar</button>
-  </div>
-</div>
+<div class="container-general">
+  <div class="container-titulo"><h1>Chano Lovers / Nao Nao Mano</h1></div>
+  <div class="resultado-container">
+    <div class="container-input-boton">
+      <!-- Inputs en una línea -->
+      <div class="inputs-container">
+        <input [(ngModel)]="inputFavor" type="number" placeholder="A favor" min="0">
+        <span>-</span>
+        <input [(ngModel)]="inputContra" type="number" placeholder="En contra" min="0">
+      </div>
+      <!-- Botón debajo de los inputs -->
+      <div class="button-container">
+        <button (click)="agregarResultado()" class="botones">Cargar</button>
+      </div>
+    </div>
 
-  <!-- Tabla a la derecha de los inputs y el botón -->
-  <div class="table-container">
-    <table>
-      <thead>
-      <tr>
-        <th>Fecha</th>
-        <th>Resultado</th>
-      </tr>
-      </thead>
-      <tbody>
+    <!-- Tabla a la derecha de los inputs y el botón -->
+    <div class="table-container">
+      <table>
+        <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Resultado</th>
+        </tr>
+        </thead>
+        <tbody>
         <tr *ngFor="let resultado of resultadosDiarios">
           <td>{{ resultado.fecha|date:'dd/MM/yyyy'}}</td>
           <td>{{ resultado.partidosGanados}} - {{ resultado.partidosPerdidos }}</td>
         </tr>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
+
+  <div class="container-link-himno"><a href="https://www.youtube.com/watch?v=txZw4iMtgJo&ab_channel=TanBionicaVEVO"
+                                       target="_blank">Himno
+    del club</a></div>
 </div>

@@ -1,3 +1,14 @@
+body
+  margin: 0
+  padding: 0
+
+.container-titulo
+  text-align: center
+
+  h1
+    font-family: Arial
+    font-weight: lighter
+
 .botones
   padding: 25% 50%
   font-size: 16px
@@ -11,28 +22,32 @@
   display: flex
   justify-content: space-between
   align-items: flex-start
-  height: 100vh
   padding: 20px
 
 .container-input-boton
   display: flex
   flex-direction: column
   align-items: center
-  justify-content: center
-  padding: 20px
+  margin-bottom: 5%
   width: 50%
 
   .inputs-container
+    justify-content: center
     display: flex
+    align-items: center
 
     input
       padding: 3%
       font-size: 12pt
+      width: 50%
+
     span
       padding: 3%
 
   .button-container
-    margin-top: 5%
+    margin-top: 4%
+    justify-content: center
+    display: flex
 
 .table-container
   width: 50%
@@ -44,6 +59,28 @@
 
   th, td
     border: 1px solid #ddd
-    padding: 8px
+    padding: 1.5%
     text-align: left
     font-family: Arial
+    word-wrap: break-word
+
+.container-link-himno
+  text-align: center
+  margin-top: 2%
+  color: #dddddd
+  a
+    font-family: Arial
+    font-weight: lighter
+    font-size: 110%
+
+// Consulta de medios para dispositivos móviles
+@media screen and (max-width: 768px)
+  .resultado-container
+    flex-direction: column
+
+  .container-input-boton
+    width: 100%
+
+  .table-container
+    width: 100%
+    overflow-x: auto
