@@ -12,8 +12,8 @@ export class ResultadoService {
 
   constructor(private http: HttpClient) {}
 
-  obtenerListaResultados(): Observable<ResultadoDiarioDTO[]> {
-    return this.http.get<ResultadoDiarioDTO[]>(`${this.apiUrl}/listar`);
+  getListaResultados(page:number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/listar/page/${page}`);
   }
 
   agregarResultado(resultado: any): Observable<ResultadoDiarioDTO> {

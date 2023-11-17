@@ -15,22 +15,31 @@
     </div>
 
     <!-- Tabla a la derecha de los inputs y el botón -->
+
     <div class="table-container">
-      <table>
-        <thead>
-        <tr>
-          <th>Fecha</th>
-          <th>Resultado</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let resultado of resultadosDiarios">
-          <td>{{ resultado.fecha|date:'dd/MM/yyyy'}}</td>
-          <td>{{ resultado.partidosGanados}} - {{ resultado.partidosPerdidos }}</td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="table-pagination-container">
+        <table>
+          <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Resultado</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let resultado of resultadosDiarios">
+            <td>{{ resultado.fecha|date:'dd/MM/yyyy'}}</td>
+            <td>{{ resultado.partidosGanados}} - {{ resultado.partidosPerdidos }}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="pagination-container">
+          <button (click)="cambiarPagina(currentPage - 1)" [disabled]="currentPage === 0">Anterior</button>
+          <button (click)="cambiarPagina(currentPage + 1)" [disabled]="resultadosDiarios.length < 10">Siguiente</button>
+        </div>
+      </div>
     </div>
+
+
   </div>
 
   <div class="container-link-himno"><a href="https://www.youtube.com/watch?v=txZw4iMtgJo&ab_channel=TanBionicaVEVO"
