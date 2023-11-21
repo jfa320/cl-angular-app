@@ -50,10 +50,11 @@ export class ResultadoComponent implements OnInit, OnDestroy {
     nuevoResultado.partidosGanados = parseInt(this.inputFavor);
     nuevoResultado.partidosPerdidos = parseInt(this.inputContra);
 
+    console.log(nuevoResultado)
     // Validar que los campos no estén vacíos
     if (nuevoResultado.partidosGanados >= 0 && nuevoResultado.partidosPerdidos >= 0) {
       this.resultadoService.agregarResultado(nuevoResultado).subscribe(
-        (response: any) => {
+        (response: ResultadoDiarioDTO ) => {
           console.log('Resultado agregado exitosamente');
         },
         (error) => {

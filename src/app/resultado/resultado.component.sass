@@ -1,3 +1,7 @@
+html
+  margin: 0
+  padding: 0
+
 body
   margin: 0
   padding: 0
@@ -55,6 +59,7 @@ body
   table
     border-collapse: collapse
     width: 100%
+    background-color: rgba(0,0,0,0.85)
 
   th, td
     border: 1px solid #ddd
@@ -82,13 +87,20 @@ body
   text-align: center
   margin-top: 2%
   color: #dddddd
+  background-color: rgba(0,0,0,0.8)
+  padding-top: 0.3%
+  padding-bottom: 0.3%
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
   a
     font-family: Arial
     font-weight: lighter
     font-size: 110%
 
 // Consulta de medios para dispositivos móviles
-@media screen and (max-width: 768px)
+@media screen and (max-width: 1024px)
   .resultado-container
     flex-direction: column
 

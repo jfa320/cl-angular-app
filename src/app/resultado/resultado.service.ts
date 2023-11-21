@@ -16,7 +16,7 @@ export class ResultadoService {
     return this.http.get<any>(`${this.apiUrl}/listar/page/${page}`);
   }
 
-  agregarResultado(resultado: any): Observable<ResultadoDiarioDTO> {
+  agregarResultado(resultado: ResultadoDiarioDTO): Observable<ResultadoDiarioDTO> {
     return this.http.post<any>(`${this.apiUrl}/agregar`, resultado)
       .pipe(
         // Después de agregar, notifica a los suscriptores que los resultados han sido actualizados.
