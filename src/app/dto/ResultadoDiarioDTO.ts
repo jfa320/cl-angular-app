@@ -1,5 +1,5 @@
 export class ResultadoDiarioDTO{
-  id: string;
+  $id: string;
   fecha: Date;
   partidosGanados: number;
   partidosPerdidos: number;
