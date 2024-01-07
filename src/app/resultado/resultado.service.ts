@@ -7,7 +7,7 @@ import {ResultadoDiarioDTO} from "../dto/ResultadoDiarioDTO";
   providedIn: 'root',
 })
 export class ResultadoService {
-  private apiUrl = 'http://localhost:8080/resultados'; // TODO: ver al subir a host
+  private apiUrl = 'https://chano-lovers-app.rj.r.appspot.com/resultados';
   private resultadosSubject = new Subject<ResultadoDiarioDTO[]>();
 
   constructor(private http: HttpClient) {}
